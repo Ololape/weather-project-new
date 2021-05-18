@@ -11,6 +11,7 @@
 </head>
 <body>
     <div class="container">
+        <div class="weather-wrap-up">
         <div class="weather-app">
         <h1>
             Doha
@@ -23,10 +24,13 @@
                 Clear with periodic clouds
             </li>
         </ul>
+        <div class="daily-values">
         <div class="row">
             <div class="col-6">
-                <img src="https://ssl.gstatic.com/onebox/weather/64/sunny_s_cloudy.png" alt="clear" />
-                30°C|°F
+                <div class="clearfix weather-temperature">
+                <img src="https://ssl.gstatic.com/onebox/weather/64/sunny_s_cloudy.png" alt="clear with periodic clouds" class="float-left" />
+                <strong>30</strong><span class="units">°C|<a href="#">°F</a></span>
+                </div>
             </div>
             <div class="col-6">
                 <ul>
@@ -41,6 +45,8 @@
                     </li>
                 </ul>
             </div>
+            </div>
+        </div>
         </div>
         <small>
             <a href="https://github.com/Ololape/weather-project-new" target="_blank">Open-source code</a>
