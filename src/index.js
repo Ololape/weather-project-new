@@ -14,7 +14,7 @@ function formatDate(timestamp) {
 }
 function displayTemperature(response) {
     console.log(response.data);
-    let temperatureElement = document.querySelector("#temperture");
+    let temperatureElement = document.querySelector("#temperature");
     let cityElement = document.querySelector("#city");
     let descriptionElement = document.querySelector("#description");
     let humidityElement = document.querySelector("#humidity");
@@ -25,15 +25,26 @@ function displayTemperature(response) {
     cityElement.innerHTML = response.data.name;
     descriptionElement.innerHTML = response.data.weather[0].description;
     humidityElement.innerHTML = response.data.main.humidity;
-    windElement.innerHTML = Math.round(response.data.main.wind.speed);
+    windElement.innerHTML = Math.round(response.data.wind.speed);
     dateElement.innerHTML = formatDate(response.data.dt * 1000);
     iconElement.setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`); 
     iconElement.setAttribute(
         "alt", response.data.weather[0].description
     );
 }
-let apiKey = "1c72bf446097ca5cb1d7b9793383b20f";
-let city = "Doha";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+function search(city) {
+    let apiKey = "1c72bf446097ca5cb1d7b9793383b20f";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(displayTemperature);
+}
 
-axios.get(apiUrl).then(displayTemperature);
+function handleSubmit(event) {
+    event.preventDefault();
+    let cityInputElement = document.querySelector("#city-input");
+    search(cityInputElement.value);
+}
+
+search("Doha");
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);

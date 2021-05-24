@@ -14,12 +14,22 @@
     <div class="container">
         <div class="weather-wrap-up">
         <div class="weather-app">
+        <form id="search-form" class="mb-3">
+        <div class="row">
+            <div class="col-9">
+            <input type="search" placeholder="Search a city..." class="form-control" id="city-input" autocomplete="off"/>
+            </div>
+            <div class="col-3">
+            <input type="submit" value="Search" class="btn btn-primary w-100" />
+            </div>
+        </form>
+        </div>
         <h1 id="city">
         
         </h1>
         <ul>
             <li> Last Updated:<span id="date"></span>
-                Monday, 11:00 PM
+                
             </li>
             <li id="description">
                 Clear with periodic clouds
@@ -39,10 +49,10 @@
                         Pressure: <span id="pressure"></span>1%
                     </li>
                     <li>
-                        Humidity: <span id="humidity"></span>52%
+                        Humidity: <span id="humidity"></span>%
                     </li>
                     <li>
-                        Wind: <span id="wind"></span>14 km/h
+                        Wind: <span id="wind"></span>km/h
                     </li>
                 </ul>
             </div>
