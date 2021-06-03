@@ -12,6 +12,39 @@ function formatDate(timestamp) {
     let day = days[date.getDay()];
     return `${day} ${hours}:${minutes}`;
 }
+
+function displayForecast() {
+    let forecastElement = document.querySelector("#forecast");
+    
+    let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+    let forecastHTML = ` <div class="row">`;
+    days.forEach(function(day){
+        forecastHTML = 
+    forecastHTML +
+     `
+                 <div class="col-2">
+                     <div class="weather-forecast-date">
+                     ${day}
+                    </div>
+                     <img src="https://ssl.gstatic.com/onebox/weather/64/sunny_s_cloudy.png" alt="" width="30">
+                     <div class="weather-forecast-temperature">
+                     <span class="temperature-forecast-high">
+                         18°
+                     </span>
+                     <span class="temperature-forecast-low">
+                         12°
+                     </span>
+                    </div>
+                 </div>
+            `;
+
+    })
+    
+    forecastHTML = forecastHTML +  `</div>`;
+    forecastElement.innerHTML = forecastHTML;
+
+}
+
 function displayTemperature(response) {
     console.log(response.data);
     let temperatureElement = document.querySelector("#temperature");
@@ -76,3 +109,4 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("Doha");
+displayForecast();
